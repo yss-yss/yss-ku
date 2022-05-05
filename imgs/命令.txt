@@ -1,0 +1,27 @@
+npm install --global yarn 安装yarn
+1、首先删除 node_modules，可以命令行删除，也可以手动右键删除文件夹。
+
+$ rmdir /s/q node_modules
+
+    1
+
+2、删除 package-lock.json 文件
+
+3、运行命令
+
+$ npm cache clean --force
+
+    1
+
+4、重新加载
+
+$ npm install
+
+
+路由出口
+<router-view v-slot="{ Component }">
+    <keep-alive>
+      <component :is="Component"  v-if="$route.meta.keepAlive"/>
+    </keep-alive>
+    <component :is="Component"  v-if="!$route.meta.keepAlive"/>
+  </router-view> 

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <script type="text/javascript" src="js/react.min.js"></script>
+    <script type="text/javascript" src="js/react-dom.min.js"></script>
+    <script type="text/javascript" src="js/babel.min.js"></script>
+    <style>
+        .box {
+            width: 500px;
+            margin: 0 auto;
+            border: 3px dotted #e7a061;
+            padding: 20px;
+        }
+        .boxInner{
+            width: 500px;
+            margin: 20px auto;
+            border: 2px solid #53cf23;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>
+<script type="text/babel">
+    // 技术点: 案例- 子组件点击事件使用类传递的事件, 将值传递给父类修改其state中的值
+    
+	class Parent extends React.Component {
+		constructor(arg) {
+			super(arg);
+			this.state = {
+				arr : [],
+			};
+		}
+		parentMethod = (obj) => {
+			// 第一种方法: 将state中的数组提出来, 赋值给新数组, 新数组修改值, 再去用 setState 修改其 state里的值
+			let {arr} = this.state;
+            arr.push(obj);
+            this.setState({arr});
+			// 第二种方法: 使用 es6 的数组的...展开运算符
+			console.log(this.state.arr);
+		};
+		render() {
+			return (
+				<div>
+					<h3>父组件: 花名册</h3>
+                    <Child fn={this.parentMethod} />
+                    <div className="boxInner">
+                        {
+                            this.state.arr.map((item,index)=>{
+                                return <li>{index+1}---{item.user}---{item.age}</li>
+                            })
+                        }
+                    </div>
+				</div>
+			);
+		}
+	}
+	class Child extends React.Component {
+		constructor() {
+			super();
+			this.state = {};
+		}
+        plus=()=>{
+            let user = document.getElementById('user').value;
+            let age = document.getElementById('age').value;
+            this.props.fn({user, age})
+        }
+		render() {
+			return (
+				<div className="box">
+                    <label>
+                        姓名: <input type="text" id="user" defaultValue='粮仓' />
+                    </label>
+                    <br />
+                    <label>
+                        芳龄: <input type="text" id="age" defaultValue='23' />
+                    </label>
+                    <br />
+                    <button onClick={this.plus}>点击增加</button>
+				</div>
+			);
+		}
+	}
+	ReactDOM.render(<Parent />, document.getElementById('box'));
+</script>

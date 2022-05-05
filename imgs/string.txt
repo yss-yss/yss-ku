@@ -1,0 +1,4 @@
+需要安装queryStrig  转换为字符串
+
+把字符串转成json 
+query	（res.url，ture） 为true 则转成json

@@ -1,0 +1,64 @@
+1.两个阶段
+2.
+3.var arr = [21,12,3,16,1,31]
+Array.prototype.Hx=function(){
+for (var i = 0; i<arguments.length;i++){
+this[this.length]= arguments.[i];
+}
+return this;
+}
+4.var arr = [5,6,6,1,6,1,6,6,1];
+function xx(arr){
+var newarr = [ ];
+for (var i = 0; i<arr.length ; i++){
+if(arr.indexof() !=-1){
+newarr.push(arr[i])
+}
+}return newarr;
+}
+5. function getcookie（“name”）{
+ var  str = document.cookie;
+ var cookstr = str.split(";");
+var pp = name+"=";
+for(var i = 0;i<cookstr.length;i++){
+if(cookstr[i].indexof(pp)!=-1){
+ return cookstr[i].substring =(pp.length);
+}
+return "";
+}
+6.闭包是指 有权访问另一个函数中的变量的函数  缺点 ：就是耗资源，占内存  优点就是：外部可以修改内部的函数变量
+7.jsonp  跨域 动态创建script标签 添加到body 是一种交互协议
+json 是 直接创建接口获取的 是一种格式
+8.是通过原型对象来实现继承的 在prototype上
+9.class Point{
+constrctor（x，y）{
+this.x =x;
+this.y = y;
+}
+toString (){
+return `("+this.x","+this.y+")`;
+}
+}
+10.  innerwidth() 包括内边界padding的值 outerwidth 包括外边界margin的值 都是用来获取元素的宽度的
+11. mouseover（） 和 mouseenter（） 两个首先共同点都是鼠标事件；都是鼠标悬停触发事件； 
+不同点 一个是mouseover 不冒泡 mouseenter冒泡
+12.
+13.同源策略 就是浏览器自带的一种保护数据措施
+14. jquery 库 好的一点是使用方便 
+不好的一点是每次使用需引库文件 这样很耗资源 
+15.flex-direction: column;  row；  竖排 横排
+flex -wrap ：nowrap； 不允许换行
+display ：flex  ； 浮动
+16.
+  function fn1（）{
+
+}
+17.布尔类型  true  false  string类型  number  undfined  null object arr
+18. 使用typeof
+19.
+20.冒泡机制指的是 比如说有a盒子和b盒子 b盒子里面包括a盒子 你要点击a盒子触发事件不受b的 影响就要给a盒子一个阻止冒泡
+21. 一个需要等待，一个不需要等待 ，在项目开发中我们一般都会选择异步 因为不需要等待
+
+
+
+	
